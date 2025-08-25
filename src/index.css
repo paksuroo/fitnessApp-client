@@ -1,0 +1,458 @@
+/* ============================ */
+/* RESET & GLOBAL STYLES */
+/* ============================ */
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto; /* Allow scrolling only when needed */
+    font-family: "Roboto", sans-serif;
+    color: #fff;
+}
+
+/* Set background for all pages */
+body {
+    background-image: url("./images/1.png"); /* Update path if needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden; /* Prevent body scrolling */
+}
+
+/* Main app container */
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent scrolling */
+}
+
+/* ============================ */
+/* NAVBAR - TRANSPARENT WITH VISIBLE TEXT */
+/* ============================ */
+.navbar-transparent {
+    background-color: rgba(0, 0, 0, 0.08) !important; /* lighter tint */
+    backdrop-filter: blur(10px); /* frosted glass effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+    min-height: 40px;
+    line-height: 1.2;
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* softer shadow */
+    flex-shrink: 0;
+}
+
+.navbar-transparent .navbar-brand {
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 1.35rem; /* bigger */
+    line-height: 1.2; /* keeps height tight */
+    padding: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.navbar-transparent .navbar-brand:hover {
+    color: #ff7e5f !important;
+    transform: scale(1.05);
+}
+
+.navbar-transparent .nav-link,
+.navbar-transparent .btn-link {
+    color: #ffffff !important;
+    font-size: 1rem; /* increase text size */
+    font-weight: 600;
+    padding: 0.2rem 0.6rem !important;
+    line-height: 1.2;
+    margin: 0 0.1rem;
+    border-radius: 12px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.navbar-transparent .nav-link::after,
+.navbar-transparent .btn-link::after {
+    display: none;
+}
+
+.navbar-transparent .nav-link:hover,
+.navbar-transparent .btn-link:hover {
+    color: #ff7e5f !important;
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+.navbar-transparent .nav-link:hover::after,
+.navbar-transparent .btn-link:hover::after {
+    width: 70%;
+}
+
+.navbar-transparent .nav-link.active,
+.navbar-transparent .btn-link.active {
+    color: #ff7e5f !important;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 1.1rem; /* increase size */
+    font-weight: 600; /* keep bold look */
+    padding: 0.25rem 0.6rem !important; /* keep compact */
+    line-height: 1.2;
+}
+
+.navbar-transparent .nav-link.active::after,
+.navbar-transparent .btn-link.active::after {
+    width: 70%;
+}
+
+/* Navbar toggler icon color */
+.navbar-transparent .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-transparent .navbar-toggler {
+    padding: 0.15rem 0.4rem;
+    font-size: 0.9rem;
+}
+
+/* Ensure navbar items are properly aligned */
+.navbar-transparent .navbar-nav {
+    align-items: center;
+}
+
+/* Adjust the collapse menu padding */
+.navbar-transparent .navbar-collapse {
+    padding: 0;
+    margin: 0;
+}
+
+/* ============================ */
+/* MAIN CONTENT AREA - NO SCROLLING */
+/* ============================ */
+.main-content {
+    flex: 1; /* Take remaining space */
+    overflow: hidden; /* Prevent scrolling */
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================ */
+/* AUTH PAGES - SOLID CARDS - NO SCROLLING */
+/* ============================ */
+.auth-page-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent scrolling */
+    flex: 1;
+}
+
+.auth-card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 400px;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    color: #fff;
+    border: none;
+    margin: 1rem; /* Add margin to ensure it doesn't touch edges */
+    max-height: 90vh; /* Limit height */
+    overflow-y: auto; /* Allow scrolling only inside card if needed */
+}
+
+.auth-card h2 {
+    color: #ff7e5f;
+    margin-top: 0;
+}
+
+.auth-card input.form-control {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.auth-card input.form-control:focus {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ============================ */
+/* WORKOUTS PAGE - NO SCROLLING */
+/* ============================ */
+.workouts-container {
+    flex: 1;
+    overflow: hidden; /* Prevent scrolling */
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: none;
+}
+
+.workouts-content {
+    flex: 1;
+    overflow-y: auto; /* Allow scrolling only inside content */
+    padding: 1rem;
+}
+
+/* ============================ */
+/* BUTTONS */
+/* ============================ */
+.btn-primary {
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    border: none;
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 0.6rem 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 126, 95, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 126, 95, 0.6);
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+}
+
+.btn-success {
+    background: linear-gradient(45deg, #56ab2f, #a8e063);
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(86, 171, 47, 0.4);
+}
+
+.btn-success:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(86, 171, 47, 0.6);
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, #ff5e62, #ff9966);
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 94, 98, 0.4);
+}
+
+.btn-danger:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 94, 98, 0.6);
+}
+
+/* ============================ */
+/* WORKOUT CARD ENHANCEMENTS */
+/* ============================ */
+.card {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    width: 100%;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(255, 126, 95, 0.3);
+}
+
+/* Workout card title */
+.card .card-title {
+    font-weight: 700;
+    color: #ffd966; /* warm yellow for better contrast */
+    font-size: 1.3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+/* Workout card main text */
+.card .card-text {
+    color: #f0f0f0; /* slightly brighter gray for readability */
+    font-size: 1.1rem;
+}
+
+/* Status badges */
+.badge-status {
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-pending {
+    background: linear-gradient(45deg, #ffd966, #ffb84d); /* warmer gradient */
+    color: #212121; /* dark text inside badge for contrast */
+}
+
+.badge-completed {
+    background: linear-gradient(
+        45deg,
+        #56ab2f,
+        #a8e063
+    ); /* keep green for completed */
+    color: #fff; /* white text inside badge */
+}
+
+/* ============================ */
+/* HEADINGS & INPUTS */
+/* ============================ */
+h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #ffc08c;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+input.form-control {
+    border-radius: 50px;
+    padding: 12px 20px;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+input.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+input.form-control:focus {
+    border-color: #ff7e5f;
+    box-shadow: 0 0 0 0.2rem rgba(255, 126, 95, 0.25);
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ============================ */
+/* MODAL STYLES */
+/* ============================ */
+.modal-content {
+    background: linear-gradient(135deg, #1a2a3a, #2c3e50);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+}
+
+.form-select:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ff7e5f;
+    box-shadow: 0 0 0 0.2rem rgba(255, 126, 95, 0.25);
+    color: #fff;
+}
+
+/* ============================ */
+/* RESPONSIVE LAYOUTS */
+/* ============================ */
+@media (max-width: 576px) {
+    .auth-card {
+        padding: 1.5rem;
+        max-width: 90%;
+        margin: 0.5rem;
+    }
+
+    .navbar-transparent .nav-link,
+    .navbar-transparent .btn-link {
+        font-size: 0.85rem;
+        padding: 0.25rem 0.5rem !important;
+    }
+
+    .card {
+        margin-bottom: 1rem;
+    }
+
+    .workouts-content {
+        padding: 0.5rem;
+    }
+}
+
+.d-flex.flex-wrap.gap-3 {
+    gap: 1.2rem;
+}
+
+/* Container adjustments */
+.container {
+    padding: 1rem;
+    overflow: hidden; /* Prevent container scrolling */
+}
+
+/* Animation for cards */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 126, 95, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 126, 95, 0.8);
+}
+
+/* Ensure no vertical overflow */
+* {
+    box-sizing: border-box;
+}
+
+.modal select.form-select,
+.modal select {
+    background-color: #fff !important; /* solid background */
+    color: #212529 !important; /* dark readable text */
+    border: 1px solid #ced4da; /* Bootstrap-like border */
+}
+
+.modal select option {
+    background-color: #fff; /* keep options visible */
+    color: #212529;
+}
