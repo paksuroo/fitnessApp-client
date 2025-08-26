@@ -1,3 +1,8 @@
 {
-    "url": "https://fitness-app-client-eta-orpin.vercel.app/"
+    "url": "https://fitness-app-client-eta-orpin.vercel.app/",
+    "endpoints": {
+        "register": "/register",
+        "login": "/login",
+        "workouts": "/workouts"
+    }
 }
