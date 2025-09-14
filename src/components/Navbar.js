@@ -27,7 +27,7 @@ export default function Navbar({ token, onLogout }) {
         <nav className="navbar navbar-expand-lg navbar-transparent">
             <div className="container">
                 <Link className="navbar-brand" to="/">
-                    💪 Fitness Tracker
+                    🏃‍♀️ StrideSync
                 </Link>
                 <button
                     className="navbar-toggler"
